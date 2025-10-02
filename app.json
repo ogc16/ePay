@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "epay",
-    "slug": "epay",
+    "name": "ePay",
+    "slug": "ePay",
     "version": "0.1.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -9,7 +9,7 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "android": {
-      "package": "com.epay.app",
+      "package": "com.ePay.app",
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
@@ -18,7 +18,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.epay.app"
+      "bundleIdentifier": "com.ePay.app"
     },
     "web": {
       "bundler": "metro",

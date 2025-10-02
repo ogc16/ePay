@@ -52,7 +52,7 @@ npm install   # or pnpm install
 ```sh
 npx expo start
 ```
-Scan the QR code with Expo Go
+Scan the QR code with Expo Go App
 
 Or run on Android/iOS emulator
 
@@ -72,9 +72,9 @@ eas build --platform android
 ```
 Then distribute via:
 
-Google Play Store (Android)
+  * Google Play Store (Android)
 
-Apple App Store (iOS)
+  * Apple App Store (iOS)
 
 (Update app.json with app name, icons, and credentials before publishing.)
 
