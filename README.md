@@ -49,7 +49,7 @@ git clone https://github.com/ogc16/epay.git
 cd epay
 npm install   # or pnpm install
 ```
-📱 Running the App
+## 📱 Running the App
 ```sh
 npx expo start
 ```
@@ -57,7 +57,7 @@ Scan the QR code with Expo Go
 
 Or run on Android/iOS emulator
 
-⚙️ Configuration
+## ⚙️ Configuration
 Create a .env file in the root directory:
 
 env
@@ -65,7 +65,7 @@ Copy code
 API_URL=https://your-api.com
 PAYMENT_KEY=your_payment_gateway_key
 
-🚀 Deployment
+## 🚀 Deployment
 Build with Expo Application Services (EAS):
 
 ```bash
@@ -79,7 +79,7 @@ Apple App Store (iOS)
 
 (Update app.json with app name, icons, and credentials before publishing.)
 
-🤝 Contributing
+## 🤝 Contributing
 Contributions are welcome! 🎉
 
 Fork the repo
@@ -92,5 +92,5 @@ Push and open a pull request
 
 For major changes, please open an issue first to discuss your ideas.
 
-📄 License
+## 📄 License
 MIT License © 2025 Caleb Ngeno
