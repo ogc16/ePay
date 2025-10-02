@@ -1,17 +1,16 @@
 # 💳 ePay – Ecommerce Mobile App  
 
-[![Expo](https://img.shields.io/badge/Expo-React%20Native-blue?logo=expo)](https://expo.dev/)  
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)  
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/ogc16/epay/pulls)  
-[![Made with Love](https://img.shields.io/badge/Made%20with-%E2%9D%A4-red.svg)](https://github.com/ogc16)  
-
-<!-- Dynamic GitHub Badges -->
-[![GitHub Stars](https://img.shields.io/github/stars/ogc16/epay?style=social)](https://github.com/ogc16/epay/stargazers)  
-[![GitHub Forks](https://img.shields.io/github/forks/ogc16/epay?style=social)](https://github.com/ogc16/epay/network/members)  
-[![Last Commit](https://img.shields.io/github/last-commit/ogc16/epay)](https://github.com/ogc16/epay/commits/main)  
-[![Issues](https://img.shields.io/github/issues/ogc16/epay)](https://github.com/ogc16/epay/issues)  
-[![Pull Requests](https://img.shields.io/github/issues-pr/ogc16/epay)](https://github.com/ogc16/epay/pulls)  
-
+<p align="center">
+  <a href="https://expo.dev/"><img src="https://img.shields.io/badge/Expo-React%20Native-blue?logo=expo" alt="Expo"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a>
+  <a href="https://github.com/ogc16/epay/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome"></a>
+  <a href="https://github.com/ogc16"><img src="https://img.shields.io/badge/Made%20with-%E2%9D%A4-red.svg" alt="Made with Love"></a>
+  <a href="https://github.com/ogc16/epay/stargazers"><img src="https://img.shields.io/github/stars/ogc16/epay?style=social" alt="GitHub Stars"></a>
+  <a href="https://github.com/ogc16/epay/network/members"><img src="https://img.shields.io/github/forks/ogc16/epay?style=social" alt="GitHub Forks"></a>
+  <a href="https://github.com/ogc16/epay/commits/main"><img src="https://img.shields.io/github/last-commit/ogc16/epay" alt="Last Commit"></a>
+  <a href="https://github.com/ogc16/epay/issues"><img src="https://img.shields.io/github/issues/ogc16/epay" alt="Issues"></a>
+  <a href="https://github.com/ogc16/epay/pulls"><img src="https://img.shields.io/github/issues-pr/ogc16/epay" alt="Pull Requests"></a>
+</p>
 ---
 
 A **cross-platform ecommerce mobile app** built with **React Native** and **Expo**, designed for **seamless shopping, secure payments, and efficient order management**.  
@@ -60,10 +59,10 @@ Or run on Android/iOS emulator
 ## ⚙️ Configuration
 Create a .env file in the root directory:
 
-env
-Copy code
+```env
 API_URL=https://your-api.com
 PAYMENT_KEY=your_payment_gateway_key
+```
 
 ## 🚀 Deployment
 Build with Expo Application Services (EAS):
@@ -82,15 +81,15 @@ Apple App Store (iOS)
 ## 🤝 Contributing
 Contributions are welcome! 🎉
 
-Fork the repo
+- Fork the repo
 
-Create a feature branch (git checkout -b feature-name)
+- Create a feature branch (git checkout -b feature-name)
 
-Commit changes (git commit -m "Add feature")
+- Commit changes (git commit -m "Add feature")
 
-Push and open a pull request
+- Push and open a pull request
 
-For major changes, please open an issue first to discuss your ideas.
+ For major changes, please open an issue first to discuss your ideas.
 
 ## 📄 License
 MIT License © 2025 Caleb Ngeno
