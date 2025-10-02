@@ -44,14 +44,15 @@ Optimized for **retail businesses in emerging markets**, ePay offers a fast, rel
 
 Clone the repository and install dependencies:  
 
-```bash
+```sh
 git clone https://github.com/ogc16/epay.git
 cd epay
 npm install   # or pnpm install
+```
 📱 Running the App
-bash
-Copy code
+```sh
 npx expo start
+```
 Scan the QR code with Expo Go
 
 Or run on Android/iOS emulator
@@ -63,12 +64,13 @@ env
 Copy code
 API_URL=https://your-api.com
 PAYMENT_KEY=your_payment_gateway_key
+
 🚀 Deployment
 Build with Expo Application Services (EAS):
 
-bash
-Copy code
+```bash
 eas build --platform android
+```
 Then distribute via:
 
 Google Play Store (Android)
@@ -92,6 +94,3 @@ For major changes, please open an issue first to discuss your ideas.
 
 📄 License
 MIT License © 2025 Caleb Ngeno
-
-yaml
-Copy code
