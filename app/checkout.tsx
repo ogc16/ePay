@@ -16,11 +16,11 @@ export default function CheckoutScreen() {
 
   useEffect(() => {
     if (user) {
-      loadCart();
+      loadCart(user.id);
     }
   }, [user]);
 
-  const loadCart = async () => {
+  const loadCart = async (userId: string) => {
     try {
       const { data, error } = await supabase
         .from('cart_items')
@@ -28,7 +28,7 @@ export default function CheckoutScreen() {
           *,
           products (*)
         `)
-        .eq('user_id', user!.id);
+        .eq('user_id', userId);
 
       if (error) throw error;
       if (data) setCartItems(data as CartItem[]);
@@ -64,7 +64,7 @@ export default function CheckoutScreen() {
       const { data: order, error: orderError } = await supabase
         .from('orders')
         .insert({
-          user_id: user!.id,
+          user_id: user.id,
           total_amount: total,
           status: 'pending',
           shipping_address: address,
@@ -90,7 +90,7 @@ export default function CheckoutScreen() {
       const { error: deleteError } = await supabase
         .from('cart_items')
         .delete()
-        .eq('user_id', user!.id);
+        .eq('user_id', user.id);
 
       if (deleteError) throw deleteError;
 
@@ -107,6 +107,14 @@ export default function CheckoutScreen() {
       setPlacing(false);
     }
   };
+
+  if (!user) {
+    return (
+      <View style={styles.loadingContainer}>
+        <Text style={styles.emptyCartText}>Please sign in to checkout</Text>
+      </View>
+    );
+  }
 
   if (loading) {
     return (
@@ -285,5 +293,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#ffffff',
+  },
+  emptyCartText: {
+    fontSize: 18,
+    color: '#6b7280',
+    textAlign: 'center',
   },
 });

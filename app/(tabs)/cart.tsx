@@ -14,13 +14,13 @@ export default function CartScreen() {
 
   useEffect(() => {
     if (user) {
-      loadCart();
+      loadCart(user.id);
     } else {
       setLoading(false);
     }
   }, [user]);
 
-  const loadCart = async () => {
+  const loadCart = async (userId: string) => {
     try {
       const { data, error } = await supabase
         .from('cart_items')
@@ -28,7 +28,7 @@ export default function CartScreen() {
           *,
           products (*)
         `)
-        .eq('user_id', user!.id);
+        .eq('user_id', userId);
 
       if (error) throw error;
       if (data) setCartItems(data as CartItem[]);
@@ -40,7 +40,7 @@ export default function CartScreen() {
   };
 
   const updateQuantity = async (itemId: string, newQuantity: number) => {
-    if (newQuantity < 1) return;
+    if (newQuantity < 1 || !user) return;
 
     try {
       const { error } = await supabase
@@ -49,13 +49,15 @@ export default function CartScreen() {
         .eq('id', itemId);
 
       if (error) throw error;
-      await loadCart();
+      await loadCart(user.id);
     } catch (error) {
       console.error('Error updating quantity:', error);
     }
   };
 
   const removeItem = async (itemId: string) => {
+    if (!user) return;
+
     try {
       const { error } = await supabase
         .from('cart_items')
@@ -63,7 +65,7 @@ export default function CartScreen() {
         .eq('id', itemId);
 
       if (error) throw error;
-      await loadCart();
+      await loadCart(user.id);
     } catch (error) {
       console.error('Error removing item:', error);
     }

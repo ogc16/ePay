@@ -18,16 +18,16 @@ export default function ProfileScreen() {
 
   useEffect(() => {
     if (user) {
-      loadOrders();
+      loadOrders(user.id);
     }
   }, [user]);
 
-  const loadOrders = async () => {
+  const loadOrders = async (userId: string) => {
     try {
       const { data, error } = await supabase
         .from('orders')
         .select('*')
-        .eq('user_id', user!.id)
+        .eq('user_id', userId)
         .order('created_at', { ascending: false });
 
       if (error) throw error;
@@ -48,11 +48,12 @@ export default function ProfileScreen() {
 
     try {
       const { error } = await supabase.auth.signInWithPassword({
-        email,
+        email: email.trim(),
         password,
       });
 
       if (error) throw error;
+      setPassword('');
     } catch (error: any) {
       setError(error.message || 'Failed to sign in');
     } finally {
@@ -76,11 +77,12 @@ export default function ProfileScreen() {
 
     try {
       const { error } = await supabase.auth.signUp({
-        email,
+        email: email.trim(),
         password,
       });
 
       if (error) throw error;
+      setPassword('');
       Alert.alert('Success', 'Account created successfully!');
     } catch (error: any) {
       setError(error.message || 'Failed to sign up');

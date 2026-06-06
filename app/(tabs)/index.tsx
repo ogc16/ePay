@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, FlatList, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Product, Category } from '@/types/database';
@@ -39,18 +39,6 @@ export default function HomeScreen() {
     </TouchableOpacity>
   );
 
-  const renderProduct = ({ item }: { item: Product }) => (
-    <TouchableOpacity
-      style={styles.productCard}
-      onPress={() => router.push(`/product/${item.id}` as any)}>
-      <Image source={{ uri: item.image_url }} style={styles.productImage} />
-      <View style={styles.productInfo}>
-        <Text style={styles.productName} numberOfLines={2}>{item.name}</Text>
-        <Text style={styles.productPrice}>${item.price}</Text>
-      </View>
-    </TouchableOpacity>
-  );
-
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
@@ -66,40 +54,38 @@ export default function HomeScreen() {
         <Text style={styles.tagline}>Shop Smart, Shop Easy</Text>
       </View>
 
-      <FlatList
-        data={[]}
-        renderItem={() => null}
-        ListHeaderComponent={() => (
-          <>
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Categories</Text>
-              <FlatList
-                data={categories}
-                renderItem={renderCategory}
-                keyExtractor={(item) => item.id}
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                contentContainerStyle={styles.categoriesList}
-              />
-            </View>
-
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Featured Products</Text>
-            </View>
-          </>
-        )}
-        ListFooterComponent={() => (
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Categories</Text>
           <FlatList
-            data={products}
-            renderItem={renderProduct}
+            data={categories}
+            renderItem={renderCategory}
             keyExtractor={(item) => item.id}
-            numColumns={2}
-            columnWrapperStyle={styles.productRow}
-            scrollEnabled={false}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.categoriesList}
           />
-        )}
-        showsVerticalScrollIndicator={false}
-      />
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Featured Products</Text>
+        </View>
+
+        <View style={styles.productsGrid}>
+          {products.map((item) => (
+            <TouchableOpacity
+              key={item.id}
+              style={styles.productCard}
+              onPress={() => router.push(`/product/${item.id}` as any)}>
+              <Image source={{ uri: item.image_url }} style={styles.productImage} />
+              <View style={styles.productInfo}>
+                <Text style={styles.productName} numberOfLines={2}>{item.name}</Text>
+                <Text style={styles.productPrice}>${item.price}</Text>
+              </View>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </ScrollView>
     </View>
   );
 }
@@ -160,13 +146,14 @@ const styles = StyleSheet.create({
     color: '#374151',
     textAlign: 'center',
   },
-  productRow: {
-    justifyContent: 'space-between',
+  productsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     paddingHorizontal: 20,
-    marginBottom: 16,
+    gap: 12,
   },
   productCard: {
-    width: '48%',
+    width: '47%',
     backgroundColor: '#ffffff',
     borderRadius: 12,
     overflow: 'hidden',
