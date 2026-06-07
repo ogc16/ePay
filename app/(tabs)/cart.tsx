@@ -113,7 +113,7 @@ export default function CartScreen() {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.headerTitle}>Shopping Cart</Text>
+          <Text style={styles.headerTitle}>Cart</Text>
         </View>
         <View style={styles.emptyContainer}>
           <Text style={styles.emptyText}>Your cart is empty</Text>
@@ -163,7 +163,7 @@ export default function CartScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Shopping Cart</Text>
+        <Text style={styles.headerTitle}>Cart</Text>
         <Text style={styles.itemCount}>{cartItems.length} items</Text>
       </View>
       <FlatList
@@ -201,12 +201,12 @@ const styles = StyleSheet.create({
     paddingTop: 60,
     paddingHorizontal: 20,
     paddingBottom: 20,
-    backgroundColor: '#2563eb',
+    backgroundColor: '#ffffff',
   },
   headerTitle: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: '#2563eb',
   },
   itemCount: {
     fontSize: 14,

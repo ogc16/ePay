@@ -238,12 +238,12 @@ const styles = StyleSheet.create({
     paddingTop: 60,
     paddingHorizontal: 20,
     paddingBottom: 20,
-    backgroundColor: '#2563eb',
+    backgroundColor: '#ffffff',
   },
   headerTitle: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: '#2563eb',
   },
   headerEmail: {
     fontSize: 14,

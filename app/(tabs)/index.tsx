@@ -49,14 +49,10 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.logo}>epay</Text>
-        <Text style={styles.tagline}>Shop Smart, Shop Easy</Text>
-      </View>
 
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Categories</Text>
+          <Text style={styles.sectionTitle}></Text>
           <FlatList
             data={categories}
             renderItem={renderCategory}
